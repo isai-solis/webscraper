@@ -27,6 +27,11 @@ db.once("open", function() {
     console.log("Mongoose connection successful.");
 });
 
+var port = process.env.PORT || 3000;
+app.listen(port, function() {
+  console.log("app server listening on port " + port);
+});
+
 app.get("/scrape", function(req, res) {
     // First, we grab the body of the html with request
     request("https://www.fantasypros.com/nfl/", function(error, response, html) {
