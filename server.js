@@ -35,7 +35,7 @@ app.listen(port, function() {
 app.get("/scrape", function(req, res) {
   request("https://www.fantasypros.com/nfl/", function(error, response, html) {
     var $ = cheerio.load(html);
-      $("a").each(function(i, element) {
+      $("div#articles-pane-nfl").each(function(i, element) {
         var result = {};
         result.title = $(this).children("a").text();
         result.link = $(this).children("a").attr("href");
