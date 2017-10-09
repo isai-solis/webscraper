@@ -27,7 +27,8 @@ $("#getArticles").on("click", function(){
         // The title of the article
         $("#notes").append("<h2>" + data.title + "</h2>");
         // Comment log
-        $("#notes").append("<h1 id='notesLog'></h1>");
+        $("#notes").append("<h3 id='notesLog1'></h3>");
+        $("#notes").append("<h4 id='notesLog2'></h4>");        
         // An input to enter a new title
         $("#notes").append("<input id='titleinput' name='title' placeholder='Comment Title'>");
         // A textarea to add a new note body
@@ -39,9 +40,9 @@ $("#getArticles").on("click", function(){
             if (data.note) {
                 for (var i=0; i<data.note.length; i++){
                     // Place the title of the note in the title input
-                    $("#notesLog").val(data.note.title);
+                    $("#notesLog1").append(data.note[i].title);
                     // Place the body of the note in the body textarea
-                    $("#notesLog").val(data.note.body);
+                    $("#notesLog2").append(data.note[i].body);
                 }
             }   
         });
